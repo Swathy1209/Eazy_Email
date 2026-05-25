@@ -1,0 +1,440 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #f1f5f9;
+    --panel: #ffffff;
+    --panel-soft: #f8fafc;
+    --border: rgba(148, 163, 184, 0.45);
+    --text: #0f172a;
+    --text-muted: #475569;
+    --accent: #0ea5e9;
+    --success: #16a34a;
+    --warning: #d97706;
+  }
+
+  html.dark {
+    --bg: #020812;
+    --panel: #081522;
+    --panel-soft: #06111f;
+    --border: rgba(56, 189, 248, 0.18);
+    --text: #ffffff;
+    --text-muted: #6b8ca5;
+    --accent: #38bdf8;
+    --success: #22c55e;
+    --warning: #f59e0b;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  html.dark body {
+    background-image: radial-gradient(circle at 10% -10%, rgba(56, 189, 248, 0.08), transparent 35%),
+      radial-gradient(circle at 90% 0%, rgba(0, 200, 255, 0.07), transparent 40%);
+  }
+}
+
+@keyframes moxsend-indeterminate {
+  0% {
+    left: -45%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  html.dark .bg-white,
+  html.dark .bg-slate-50,
+  html.dark .bg-slate-100,
+  html.dark .bg-slate-50\/90,
+  html.dark .bg-slate-50\/95,
+  html.dark .bg-white\/90 {
+    background-color: var(--panel) !important;
+  }
+
+  html.dark .bg-slate-50\/50,
+  html.dark .bg-slate-50\/40,
+  html.dark .bg-slate-100\/80,
+  html.dark .bg-slate-200\/80 {
+    background-color: var(--panel-soft) !important;
+  }
+
+  html.dark .border-slate-100,
+  html.dark .border-slate-100\/90,
+  html.dark .border-slate-200,
+  html.dark .border-slate-200\/90,
+  html.dark .border-slate-300,
+  html.dark .border-dashed.border-slate-200,
+  html.dark .ring-slate-100\/80,
+  html.dark .ring-slate-200\/80,
+  html.dark .ring-slate-200\/90 {
+    border-color: var(--border) !important;
+    --tw-ring-color: var(--border) !important;
+  }
+
+  html.dark .text-slate-900,
+  html.dark .text-slate-800,
+  html.dark .text-slate-700,
+  html.dark .text-slate-600 {
+    color: var(--text) !important;
+  }
+
+  html.dark .text-slate-500,
+  html.dark .text-slate-400 {
+    color: var(--text-muted) !important;
+  }
+
+  html.dark .bg-emerald-50,
+  html.dark .bg-emerald-50\/60 {
+    background-color: color-mix(in srgb, var(--success) 20%, transparent) !important;
+  }
+
+  html.dark .text-emerald-800,
+  html.dark .text-emerald-900 {
+    color: var(--success) !important;
+  }
+
+  html.dark .border-emerald-100,
+  html.dark .border-emerald-200,
+  html.dark .ring-emerald-200\/70,
+  html.dark .ring-emerald-200\/80 {
+    border-color: color-mix(in srgb, var(--success) 35%, transparent) !important;
+    --tw-ring-color: color-mix(in srgb, var(--success) 35%, transparent) !important;
+  }
+
+  html.dark .bg-amber-50,
+  html.dark .bg-amber-50\/60 {
+    background-color: color-mix(in srgb, var(--warning) 22%, transparent) !important;
+  }
+
+  html.dark .text-amber-900,
+  html.dark .text-amber-950 {
+    color: var(--warning) !important;
+  }
+
+  html.dark .border-amber-200,
+  html.dark .ring-amber-200\/80 {
+    border-color: color-mix(in srgb, var(--warning) 35%, transparent) !important;
+    --tw-ring-color: color-mix(in srgb, var(--warning) 35%, transparent) !important;
+  }
+
+  html.dark .bg-gradient-to-r,
+  html.dark .bg-gradient-to-br,
+  html.dark .bg-gradient-to-b {
+    background-image: none !important;
+  }
+
+  html.dark .from-violet-600,
+  html.dark .to-indigo-700,
+  html.dark .from-violet-500,
+  html.dark .to-indigo-600,
+  html.dark .from-slate-800,
+  html.dark .to-slate-900,
+  html.dark .to-slate-800 {
+    background: linear-gradient(90deg, #00c8ff, #38bdf8) !important;
+    color: #02111f !important;
+  }
+
+  html.dark .shadow-sm,
+  html.dark .shadow-md,
+  html.dark .shadow-lg {
+    box-shadow: none !important;
+  }
+
+  .personalize-shell {
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .personalize-header {
+    border-color: var(--border);
+    background: color-mix(in srgb, var(--panel-soft) 92%, transparent);
+    box-shadow: 0 4px 24px color-mix(in srgb, var(--accent) 18%, transparent);
+  }
+
+  .personalize-sidebar {
+    border-color: var(--border);
+    background: color-mix(in srgb, var(--panel-soft) 96%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent), 0 0 48px color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+
+  .personalize-panel {
+    border-color: var(--border);
+    background: color-mix(in srgb, var(--panel) 82%, transparent);
+  }
+
+  .personalize-muted {
+    color: var(--text-muted);
+  }
+
+  .personalize-back-link {
+    border-color: color-mix(in srgb, var(--accent) 38%, transparent);
+    background: color-mix(in srgb, var(--panel) 94%, transparent);
+    color: color-mix(in srgb, var(--accent) 30%, var(--text));
+  }
+
+  .personalize-back-link:hover {
+    border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+    color: var(--text);
+  }
+
+  .progress-track {
+    height: 0.375rem;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--panel) 86%, #000);
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    transition: width 700ms ease;
+  }
+
+  .progress-fill-cyan {
+    background: linear-gradient(90deg, #00c8ff, #38bdf8);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.55);
+  }
+
+  .progress-fill-emerald {
+    background: linear-gradient(90deg, #22c55e, #4ade80);
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.45);
+  }
+
+  .progress-fill-amber {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.45);
+  }
+
+  @keyframes heatIn {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-heat-in {
+    animation: heatIn 540ms ease-out both;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 360ms ease-out both;
+  }
+
+  .status-chip {
+    display: inline-flex;
+    border-radius: 0.375rem;
+    border-width: 1px;
+    padding: 0.125rem 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .status-chip-success {
+    border-color: rgb(34 197 94 / 0.45);
+    background: rgb(220 252 231);
+    color: rgb(21 128 61);
+  }
+
+  .status-chip-retrying {
+    border-color: rgb(245 158 11 / 0.5);
+    background: rgb(254 243 199);
+    color: rgb(146 64 14);
+  }
+
+  .status-chip-failed {
+    border-color: rgb(239 68 68 / 0.5);
+    background: rgb(254 226 226);
+    color: rgb(153 27 27);
+  }
+
+  .status-chip-neutral {
+    border-color: rgb(56 189 248 / 0.35);
+    background: rgb(224 242 254);
+    color: rgb(3 105 161);
+  }
+
+  html.dark .status-chip-success {
+    border-color: rgb(34 197 94 / 0.45);
+    background: rgb(34 197 94 / 0.12);
+    color: rgb(167 243 208);
+  }
+
+  html.dark .status-chip-retrying {
+    border-color: rgb(245 158 11 / 0.5);
+    background: rgb(245 158 11 / 0.12);
+    color: rgb(253 230 138);
+  }
+
+  html.dark .status-chip-failed {
+    border-color: rgb(239 68 68 / 0.5);
+    background: rgb(239 68 68 / 0.12);
+    color: rgb(252 165 165);
+  }
+
+  html.dark .status-chip-neutral {
+    border-color: rgb(56 189 248 / 0.35);
+    background: rgb(8 21 34);
+    color: rgb(190 239 255);
+  }
+
+  .table-action-btn {
+    border-radius: 0.375rem;
+    border: 1px solid rgb(148 163 184 / 0.55);
+    background: rgb(248 250 252);
+    padding: 0.125rem 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: rgb(30 41 59);
+    transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+  }
+
+  .table-action-btn:hover {
+    border-color: rgb(71 85 105 / 0.65);
+    background: rgb(241 245 249);
+  }
+
+  html.dark .table-action-btn {
+    border-color: rgb(56 189 248 / 0.35);
+    background: rgb(6 17 31);
+    color: rgb(190 239 255);
+  }
+
+  html.dark .table-action-btn:hover {
+    border-color: rgb(56 189 248 / 0.55);
+    background: rgb(8 21 34);
+  }
+
+  html:not(.dark) .personalize-shell .bg-\[\#020812\],
+  html:not(.dark) .personalize-shell .bg-\[\#020812\]\/70,
+  html:not(.dark) .personalize-shell .bg-\[\#020812\]\/80,
+  html:not(.dark) .personalize-shell .bg-\[\#020812\]\/85,
+  html:not(.dark) .personalize-shell .bg-\[\#020812\]\/90,
+  html:not(.dark) .personalize-shell .bg-\[\#050B14\]\/70,
+  html:not(.dark) .personalize-shell .bg-\[\#050B14\]\/75,
+  html:not(.dark) .personalize-shell .bg-\[\#050B14\]\/85,
+  html:not(.dark) .personalize-shell .bg-\[\#06111F\]\/45,
+  html:not(.dark) .personalize-shell .bg-\[\#06111F\]\/55,
+  html:not(.dark) .personalize-shell .bg-\[\#06111F\],
+  html:not(.dark) .personalize-shell .bg-\[\#06111F\]\/60,
+  html:not(.dark) .personalize-shell .bg-\[\#06111F\]\/65,
+  html:not(.dark) .personalize-shell .bg-\[\#06111F\]\/70,
+  html:not(.dark) .personalize-shell .bg-\[\#06111F\]\/75,
+  html:not(.dark) .personalize-shell .bg-\[\#06111F\]\/80,
+  html:not(.dark) .personalize-shell .bg-\[\#06111F\]\/85,
+  html:not(.dark) .personalize-shell .bg-\[\#06111F\]\/88,
+  html:not(.dark) .personalize-shell .bg-\[\#06111F\]\/90,
+  html:not(.dark) .personalize-shell .bg-\[\#07101A\]\/75,
+  html:not(.dark) .personalize-shell .bg-\[\#07101A\]\/85,
+  html:not(.dark) .personalize-shell .bg-\[\#08111B\]\/85,
+  html:not(.dark) .personalize-shell .bg-\[\#081522\],
+  html:not(.dark) .personalize-shell .bg-\[\#081522\]\/60,
+  html:not(.dark) .personalize-shell .bg-\[\#081522\]\/70,
+  html:not(.dark) .personalize-shell .bg-\[\#081522\]\/75,
+  html:not(.dark) .personalize-shell .bg-\[\#081522\]\/80,
+  html:not(.dark) .personalize-shell .bg-\[\#081522\]\/85,
+  html:not(.dark) .personalize-shell .bg-\[\#081522\]\/88,
+  html:not(.dark) .personalize-shell .bg-\[\#081522\]\/90,
+  html:not(.dark) .personalize-shell .bg-\[\#081522\]\/95,
+  html:not(.dark) .personalize-shell .bg-\[\#091422\]\/80 {
+    background-color: var(--panel) !important;
+    background-image: none !important;
+  }
+
+  html:not(.dark) .personalize-shell .text-white,
+  html:not(.dark) .personalize-shell .text-slate-100,
+  html:not(.dark) .personalize-shell .text-slate-200,
+  html:not(.dark) .personalize-shell .text-slate-300,
+  html:not(.dark) .personalize-shell .text-cyan-100,
+  html:not(.dark) .personalize-shell .text-cyan-200 {
+    color: var(--text) !important;
+  }
+
+  html:not(.dark) .personalize-shell .text-slate-400,
+  html:not(.dark) .personalize-shell .text-\[\#6B8CA5\],
+  html:not(.dark) .personalize-shell .text-\[\#7C99AE\],
+  html:not(.dark) .personalize-shell .text-\[\#7D96AB\],
+  html:not(.dark) .personalize-shell .text-\[\#87A3B9\],
+  html:not(.dark) .personalize-shell .text-\[\#89A9C0\],
+  html:not(.dark) .personalize-shell .text-\[\#8CA9BD\],
+  html:not(.dark) .personalize-shell .text-\[\#8DAABD\],
+  html:not(.dark) .personalize-shell .text-\[\#8EA8BB\],
+  html:not(.dark) .personalize-shell .text-\[\#9AB5C8\],
+  html:not(.dark) .personalize-shell .text-\[\#9DB7C9\],
+  html:not(.dark) .personalize-shell .text-\[\#A2BACD\] {
+    color: var(--text-muted) !important;
+  }
+
+  html:not(.dark) .personalize-shell .text-\[\#CCF5FF\],
+  html:not(.dark) .personalize-shell .text-\[\#D5F5FF\],
+  html:not(.dark) .personalize-shell .text-\[\#D8F6FF\],
+  html:not(.dark) .personalize-shell .text-\[\#CBEFFF\],
+  html:not(.dark) .personalize-shell .text-\[\#B4F3C8\],
+  html:not(.dark) .personalize-shell .text-\[\#FDE68A\],
+  html:not(.dark) .personalize-shell .text-\[\#FFE7C7\],
+  html:not(.dark) .personalize-shell .text-\[\#EDE9FE\],
+  html:not(.dark) .personalize-shell .text-\[\#CCFBF1\] {
+    color: var(--text) !important;
+  }
+
+  html:not(.dark) .personalize-shell .hover\:bg-\[\#081522\]:hover,
+  html:not(.dark) .personalize-shell .hover\:bg-\[\#081522\]\/80:hover,
+  html:not(.dark) .personalize-shell .hover\:bg-\[\#00C8FF\]\/30:hover,
+  html:not(.dark) .personalize-shell .hover\:bg-\[\#8B5CF6\]\/30:hover,
+  html:not(.dark) .personalize-shell .hover\:bg-\[\#14B8A6\]\/20:hover,
+  html:not(.dark) .personalize-shell .hover\:bg-\[\#F97316\]\/28:hover {
+    background-color: color-mix(in srgb, var(--accent) 14%, var(--panel)) !important;
+    color: var(--text) !important;
+  }
+
+  html:not(.dark) .personalize-shell .bg-\[\#00C8FF\]\/15,
+  html:not(.dark) .personalize-shell .bg-\[\#00C8FF\]\/20,
+  html:not(.dark) .personalize-shell .bg-\[\#22C55E\]\/15,
+  html:not(.dark) .personalize-shell .bg-\[\#F59E0B\]\/12,
+  html:not(.dark) .personalize-shell .bg-\[\#FB923C\]\/18,
+  html:not(.dark) .personalize-shell .bg-\[\#8B5CF6\]\/18,
+  html:not(.dark) .personalize-shell .bg-\[\#14B8A6\]\/12 {
+    background-color: color-mix(in srgb, var(--accent) 12%, var(--panel)) !important;
+  }
+
+  html:not(.dark) .personalize-shell .hover\:bg-\[\#22C55E\]\/22:hover,
+  html:not(.dark) .personalize-shell .hover\:bg-\[\#F59E0B\]\/20:hover {
+    background-color: color-mix(in srgb, var(--accent) 16%, var(--panel)) !important;
+    color: var(--text) !important;
+  }
+}

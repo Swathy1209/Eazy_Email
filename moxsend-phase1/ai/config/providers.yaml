@@ -1,0 +1,4 @@
+routing:
+  generate: ollama
+  rewrite: groq
+  evaluate: ollama

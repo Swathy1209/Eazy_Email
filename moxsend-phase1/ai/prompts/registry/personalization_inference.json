@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "id": "personalization_inference",
+    "version": "1.0.0",
+    "description": "Infer personalization context from lead data",
+    "tags": ["personalization", "inference", "context"],
+    "workflow_node": "personalize",
+    "language": "universal",
+    "created_at": "2024-01-15T10:00:00Z",
+    "updated_at": "2024-01-15T10:00:00Z",
+    "author": "system"
+  },
+  "content": "Analyze this lead data and infer personalization context for business email subject lines:\n\nLead Data:\n- Name: {firstname} {lastname}\n- Company: {company}\n- Title: {designation}\n- Industry: {industry}\n- Company Size: {company_size}\n- City/Country: {city}, {country}\n- Lead Type: {lead_type}\n- Source: {source}\n\nInfer the following as JSON:\n{{\n    \"industry\": \"classified industry\",\n    \"persona\": \"inferred role/persona\",\n    \"pain_points\": [\"list\", \"of\", \"3-5\", \"pain points\"],\n    \"urgency_level\": \"low/medium/high\",\n    \"tone_strategy\": \"appropriate tone\",\n    \"narrative_hint\": \"brief narrative focus\",\n    \"business_pressure\": \"main business challenge\",\n    \"messaging_angle\": \"communication approach\"\n}}\n\nFocus on business-relevant insights for {language} communication."
+}

@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "id": "english_humanizer",
+    "version": "1.0.0",
+    "description": "Humanize English subject lines to reduce AI feel",
+    "tags": ["humanization", "rewrite", "english"],
+    "workflow_node": "humanize",
+    "language": "english",
+    "created_at": "2024-01-15T10:00:00Z",
+    "updated_at": "2024-01-15T10:00:00Z",
+    "author": "system"
+  },
+  "content": "Rewrite this subject line to sound more natural and human-like while preserving professional business communication:\n\nOriginal: \"{content}\"\n\nRequirements:\n- Maintain professional tone\n- Preserve core meaning\n- Add natural sentence rhythm\n- Vary sentence length\n- Use conversational pacing\n- Include realistic transitions\n- Reduce robotic symmetry\n- Keep business-appropriate language\n\nDO NOT:\n- Add slang or informal language\n- Reduce clarity or professionalism\n- Make it overly casual\n\nRewritten version:"
+}

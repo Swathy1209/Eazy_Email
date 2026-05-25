@@ -1,0 +1,37 @@
+{
+  "name": "easyhawk-csv-api",
+  "version": "1.0.0",
+  "description": "Production-ready Express API for CSV upload and job tracking",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "concurrently -k -n api,web -c cyan,magenta \"cross-env PORT=3001 node src/server.js\" \"wait-on http://127.0.0.1:3001/health && npm run dev --prefix ../frontend\"",
+    "dev:watch": "concurrently -k -n api,web -c cyan,magenta \"cross-env PORT=3001 node --watch src/server.js\" \"wait-on http://127.0.0.1:3001/health && npm run dev --prefix ../frontend\"",
+    "dev:api": "cross-env PORT=3001 node src/server.js",
+    "dev:api:watch": "cross-env PORT=3001 node --watch src/server.js",
+    "dev:web": "npm run dev --prefix ../frontend",
+    "build:web": "npm run build --prefix ../frontend",
+    "test": "node --test test/*.test.js",
+    "test:subject-lines": "node --test test/subject-lines.test.js",
+    "test:subject-lines:api": "node scripts/test-subject-lines.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@supabase/supabase-js": "^2.49.1",
+    "axios": "^1.16.0",
+    "csv-parser": "^3.2.0",
+    "dotenv": "^16.4.7",
+    "express": "^5.2.1",
+    "lucide-react": "^1.8.0",
+    "multer": "^2.1.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "wait-on": "^8.0.1"
+  }
+}

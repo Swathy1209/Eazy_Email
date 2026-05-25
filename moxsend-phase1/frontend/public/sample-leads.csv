@@ -1,0 +1,3 @@
+email,firstname,lastname,phone,company,companyurl,city,country,designation,industry,company_size,lead_type,source,tags,notes
+jane.doe@acmecorp.example,Jane,Doe,+1-555-0100,Acme Corp,https://acmecorp.example,San Francisco,USA,VP Sales,Technology,201-500,new business,webinar,Q4-2026,Interested in outbound automation
+john.smith@globallogistics.example,John,Smith,+1-555-0101,Global Logistics Inc,https://globallogistics.example,Chicago,USA,Operations Director,Logistics,1001-5000,expansion,,,
