@@ -1,4 +1,3 @@
-# Moxsend Phase 1
 
 ## Folder Structure
 
